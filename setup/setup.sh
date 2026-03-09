@@ -192,7 +192,8 @@ function setup_writing_tools() {
 }
 
 function setup_misc_dev_tools() {
-	install_tools paru github-cli just tokei gittype lazygit
+	install_tools paru github-cli just tokei gittype lazygit 
+	install_tools cargo prek
 
 }
 function setup_rust_tools() {
