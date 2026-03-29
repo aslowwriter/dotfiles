@@ -121,7 +121,6 @@ bindsym $mod+c exec --no-startup-id walker -m "clipboard"
 
 # lockscreen
 set $lock 'swaylock --ignore-empty-password -i ~/Wallpapers/locked.png'
-bindsym ctrl+Shift+l exec --no-startup-id $lock
 bindswitch --reload --locked lid:on exec $lock
 
 exec swayidle -w \

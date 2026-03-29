@@ -197,7 +197,8 @@ function setup_misc_dev_tools() {
 
 }
 function setup_rust_tools() {
-	install_tools paru rustup taplo-cli bacon release-plz
+	install_tools paru rustup taplo-cli bacon release-plz 
+	install_tools cargo cargo-edit cargo-generate
 
 }
 function setup_infra_tools() {
