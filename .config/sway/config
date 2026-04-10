@@ -158,6 +158,7 @@ assign [app_id=".*signal"]                       $ws5
 assign [class="discord"]                         $ws7
 assign [class="steam"]                           $ws8
 assign [class="Plex"]                            $ws9
+assign [app_id="com.obsproject.Studio"] 	$ws9
 assign [app_id="spotify"]                         $ws10
 
 # waybar
