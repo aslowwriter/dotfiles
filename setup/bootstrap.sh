@@ -40,6 +40,6 @@ pacstrap -K /mnt amd-ucode base curl foot git linux linux-firmware mesa networkm
 genfstab -U /mnt >>/mnt/etc/fstab
 
 # stuff we have to do in jail
-curl -L https://raw.githubusercontent.com/savente93/dotfiles/main/setup/jailed.sh -o /mnt/jailed.sh
+curl -L https://raw.githubusercontent.com/aslowwriter/dotfiles/main/setup/jailed.sh -o /mnt/jailed.sh
 chmod +x /mnt/jailed.sh
 arch-chroot /mnt

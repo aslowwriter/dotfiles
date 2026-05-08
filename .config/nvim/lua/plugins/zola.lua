@@ -1,5 +1,5 @@
 return {
-  'savente93/zola.nvim',
+  'aslowwriter/zola.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     vim.keymap.set('n', '<leader>zbd', function()

@@ -258,9 +258,9 @@ function setup_de() {
 function setup_dotfiles() {
 	install_tools paru stow
 	if [ ! -d ~/dotfiles ]; then
-		git clone https://github.com/savente93/dotfiles.git ~/dotfiles
+		git clone https://github.com/aslowwriter/dotfiles.git ~/dotfiles
 		pushd ~/dotfiles || exit 1
-		git remote set-url origin git@github.com:savente93/dotfiles.git
+		git remote set-url origin git@github.com:aslowwriter/dotfiles.git
 
 		# just let stow assume ownership of everything
 		stow --adopt *
