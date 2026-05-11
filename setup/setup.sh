@@ -181,6 +181,12 @@ function setup_terminal() {
 
 }
 
+function ssetup_streaming_tools() {
+    install_tools flatpak flathub com.obsproject.Studio.Plugin.OBSPWVideo
+    install_tools paru firebot 
+
+}
+
 function setup_writing_tools() {
 
 	install_tools paru evince typst zola obsidian tree-sitter-cli
