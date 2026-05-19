@@ -195,20 +195,20 @@ exec --no-startup-id mako
 
 
 # bindsym BackSpace exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh 
-bindsym plusminus exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch ending
+bindsym KP_Tab exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch ending
 # bindsym KP_0 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym KP_1 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch coding
 bindsym KP_0 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch art
 # bindsym KP_2 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
-# bindsym KP_3 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
+bindsym KP_3 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Happy
 bindsym KP_4 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch gaming
 # bindsym KP_5 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
-# bindsym KP_6 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
+bindsym KP_6 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Angry
 bindsym KP_7 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch break
 bindsym KP_8 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch yapping
-# bindsym KP_9 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
+bindsym KP_9 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Sad
 # bindsym KP_Add exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
-# bindsym KP_Decimal exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
+bindsym KP_Decimal exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Base
 # bindsym KP_Divide exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym KP_Enter exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym KP_Multiply exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
@@ -217,7 +217,7 @@ bindsym KP_8 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene swit
 bindsym XF86HomePage exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch starting 
 # bindsym XF86Mail exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym KP_Equal exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
-bindsym KP_Enter exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch EMERGENCY
+# bindsym plusminus exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 
 input * {
     xkb_numlock enabled
