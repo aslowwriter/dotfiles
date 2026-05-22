@@ -30,6 +30,9 @@ bindsym --locked XF86AudioPrev exec playerctl previous
 bindsym --locked $mod+i exec playerctl play-pause
 bindsym --locked $mod+o exec playerctl next
 bindsym --locked $mod+u exec playerctl previous
+bindsym --locked $mod+Shift+i exec playerctl --all-players pause
+bindsym --locked $mod+Shift+o exec playerctld shift
+bindsym --locked $mod+Shift+u exec playerctld unshift
 bindsym --locked $mod+p  exec pulsemixer --change-volume +5 --max-volume 100
 bindsym --locked $mod+y  exec pulsemixer --change-volume -5
 
@@ -215,7 +218,7 @@ bindsym KP_Decimal exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mi
 # bindsym KP_Subtract  exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym XF86Calculator exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym XF86HomePage exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch starting 
-# bindsym XF86Mail exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
+bindsym XF86Mail exec --no-startup-id playerctl --player=spotify play-pause
 # bindsym KP_Equal exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym plusminus exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 
