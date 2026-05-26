@@ -208,7 +208,7 @@ bindsym KP_4 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene swit
 # bindsym KP_5 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym KP_6 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Angry
 bindsym KP_7 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch break
-bindsym KP_8 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch yapping
+bindsym KP_comma exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch yapping
 bindsym KP_9 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Sad
 # bindsym KP_Add exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym KP_Decimal exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Base
