@@ -208,7 +208,6 @@ bindsym KP_4 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene swit
 # bindsym KP_5 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym KP_6 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Angry
 bindsym KP_7 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch break
-bindsym KP_comma exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch yapping
 bindsym KP_9 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Sad
 # bindsym KP_Add exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym KP_Decimal exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Base
@@ -218,6 +217,7 @@ bindsym KP_Decimal exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mi
 # bindsym KP_Subtract  exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym XF86Calculator exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym XF86HomePage exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch starting 
+bindsym XF86Eject exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch yapping
 bindsym XF86Mail exec --no-startup-id playerctl --player=spotify play-pause
 # bindsym KP_Equal exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym plusminus exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
