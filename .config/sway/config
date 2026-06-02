@@ -198,7 +198,7 @@ exec --no-startup-id mako
 
 
 # bindsym BackSpace exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh 
-bindsym KP_Tab exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch ending
+bindsym plusminus exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch ending
 # bindsym KP_0 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym KP_1 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch coding
 bindsym KP_0 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene switch art
