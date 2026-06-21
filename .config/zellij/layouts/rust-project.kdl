@@ -1,0 +1,22 @@
+
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+
+    
+      pane split_direction="vertical" {
+    pane name="editor"{
+	command "nvim"
+	close_on_exit true
+    }
+    pane name="bacon"{
+	command "bacon"
+	close_on_exit true
+    }
+    }
+    pane size=1 borderless=true {
+        plugin location="status-bar"
+	}
+
+}

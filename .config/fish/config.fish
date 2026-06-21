@@ -49,5 +49,9 @@ if status is-interactive
     abbr --add ptt pixi run -e default test
 
     set -g fish_key_bindings fish_vi_key_bindings
+    if set -q ZELLIJ
+    else
+      zellij
+    end
 end
 

@@ -1,0 +1,61 @@
+# See the full configuration reference: https://rioterm.com/docs/config
+
+
+[editor]
+program = "nvim"
+
+[fonts]
+size = 26
+# features = []
+use-drawable-chars = true
+# symbol-map = []
+disable-warnings-not-found = false
+# additional-dirs = []
+
+family = "FiraCode Nerd Font"
+
+[colors]
+background = '#282c34'
+foreground = '#dcdfe4'
+selection-background = '#474e5d'
+selection-foreground = '#dcdfe4'
+cursor = '#a3b3cc'
+black = '#282c34'
+red = '#e06c75'
+green = '#98c379'
+yellow = '#e5c07b'
+blue = '#61afef'
+magenta = '#c678dd'
+cyan = '#56b6c2'
+white = '#dcdfe4'
+light_black = '#282c34'
+light_red = '#e06c75'
+light_green = '#98c379'
+light_yellow = '#e5c07b'
+light_blue = '#61afef'
+light_magenta = '#c678dd'
+light_cyan = '#56b6c2'
+light_white = '#dcdfe4'
+
+fonts.symbol-map = [
+  { start = "E0A0", end = "E0A3", font-family = "PowerlineSymbols" },
+  { start = "E0C0", end = "E0C7", font-family = "PowerlineSymbols" }
+]
+
+[navigation]
+mode = "Plain"
+# [fonts.regular]
+# family = "FiraCode Nerd Font"
+# style = "default"
+#
+# [fonts.bold]
+# family = "cascadiacode"
+# style = "default"
+#
+# [fonts.italic]
+# family = "cascadiacode"
+# style = "default"
+#
+# [fonts.bold-italic]
+# family = "cascadiacode"
+# style = "default"
