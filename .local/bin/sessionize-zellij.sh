@@ -5,7 +5,7 @@ LOG_FILE="/home/sam/zellij-log.txt"
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find  ~/projects ~/dotfiles ~/projects/{rust,streaming,writing,flatpak} -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/projects/{rust,streaming,writing,flatpak} -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 echo "selected: $selected"  >> $LOG_FILE

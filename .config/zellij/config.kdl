@@ -163,6 +163,17 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Ctrl [" { PreviousSwapLayout; }
         bind "Ctrl ]" { NextSwapLayout; }
+        bind "Ctrl g" {
+            Run "lazygit" {
+                floating true
+                hold_on_close false
+		close_on_exit true
+                x "0"
+                y "0"
+                width "100%"
+                height "100%"
+            }
+        }
         bind "Ctrl a" {
             Run "bash" "/home/sam/.local/bin/sessionize-zellij.sh" {
                 floating true
@@ -175,6 +186,7 @@ keybinds clear-defaults=true {
             }
         }
         bind "Ctrl j" { MoveFocus "down"; }
+        bind "Ctrl x" { CloseTab; SwitchToMode "normal"; }
         bind "Ctrl k" { MoveFocus "up"; }
         bind "Ctrl l" { MoveFocus "right"; }
         bind "Ctrl n" { NewPane; }
