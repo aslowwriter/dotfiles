@@ -19,6 +19,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       python = { 'ruff' },
       rust = { 'rustfmt' },
+      bash = { 'shellfmt' },
     },
   },
 }
