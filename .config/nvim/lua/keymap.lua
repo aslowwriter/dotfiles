@@ -3,6 +3,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- NOTE: file keymaps
 vim.keymap.set('n', '<leader>fw', ':wa<CR>', { desc = 'Write all open files' })
+vim.keymap.set('n', '<leader>fw', ':noautocmd w<CR>', { desc = 'Write all open files' })
+
 vim.keymap.set('n', '<leader>fc', ':bd<CR>', { desc = 'Close current file' })
 
 -- NOTE: undo keymaps
