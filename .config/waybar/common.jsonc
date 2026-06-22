@@ -65,13 +65,13 @@
         }
     },
     "wireplumber":{
-        "format":"{volume}% {icon}",
+        "format":"{icon} {volume}%",
         "format-muted":"",
         "on-click":"qpwgraph",
         "format-icons":[
-            " ",
-            " ",
-            " "
+            "  ",
+            "  ",
+            "  "
         ]
     },
     "battery":{
@@ -85,12 +85,12 @@
         },
         "format":"{icon} {capacity}%",
         "format-icons":{
-            "critical":"",
-            "low":"",
-            "normal":"",
-            "good":"",
-            "full":"",
-            "charging":""
+            "critical":"  ",
+            "low":"  ",
+            "normal":"  ",
+            "good":"  ",
+            "full":"  ",
+            "charging":" "
         }
     },
     "network":{
