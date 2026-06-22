@@ -38,11 +38,11 @@
         "format":"{name}"
     },
     "clock#time":{
-        "format":" {:%H:%M}",
+        "format":"  {:%H:%M}",
         "tooltip":false
     },
     "clock#date":{
-        "format":" {:%a %d/%m}",
+        "format":"  {:%a %d/%m}",
         "tooltip-format":"<tt>{calendar}</tt>",
         "calendar":{
             "mode":"month",
