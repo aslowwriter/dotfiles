@@ -5,7 +5,7 @@ layout {
         plugin location="tab-bar"
     }
     pane name="editor"{
-	command "pixi" "run" "nvim"
+	command "pixi" "run" "-e" "default" "nvim"
     }
 
 }
