@@ -211,7 +211,7 @@ bindsym KP_7 exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh scene swit
 bindsym KP_9 exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Sad
 # bindsym KP_Add exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 bindsym KP_Decimal exec --no-startup-id veadotube-mini -i 0 nodes stateEvents mini set Base
-bindsym KP_Divide exec --no-startup-id curl -X POST http://localhost:7472/api/v1/counters/cad0471e-81ca-4a29-bdce-c40c7485d022 -H "Content-Type: application/json" -d '{"value": 1, "override": false}'
+bindsym KP_Divide exec --no-startup-id curl -X POST http://localhost:7472/api/v1/counters/ca594737-c7f1-491e-b09b-ec56dfd94667 -H "Content-Type: application/json" -d '{"value": 1, "override": false}'
 # bindsym KP_Enter exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym KP_Multiply exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
 # bindsym KP_Subtract  exec --no-startup-id sh $HOME/.config/obs/scripts/obs.sh
