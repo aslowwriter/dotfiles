@@ -1,5 +1,10 @@
 return {
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {},
+  },
   'rcarriga/nvim-notify',
   {
     'navarasu/onedark.nvim',
