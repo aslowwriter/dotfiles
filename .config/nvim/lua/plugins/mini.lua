@@ -2,6 +2,7 @@ return {
   'echasnovski/mini.nvim',
   config = function()
     require('mini.surround').setup()
+    require('mini.test').setup()
     require('mini.splitjoin').setup()
     require('mini.bracketed').setup()
     require('mini.comment').setup()

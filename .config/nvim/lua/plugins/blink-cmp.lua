@@ -26,9 +26,11 @@ return { -- Autocompletion
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev', 'zola_content', 'zola_shortcodes' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        zola_content = { module = 'zola.sources.content_paths', min_keyword_length = 1 },
+        zola_shortcodes = { module = 'zola.sources.shortcodes' }
       },
     },
 

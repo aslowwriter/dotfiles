@@ -1,89 +1,41 @@
 return {
   dir = '~/projects/lua/zola.nvim',
   lazy = false,
+  opts = { draft_by_default = true },
 
   dependencies = {
     'nvim-lua/plenary.nvim',
     'saghen/blink.cmp',
   },
 
-  opts = {},
-
   keys = {
     {
-      '<leader>zbd',
-      function()
-        require('zola').build { drafts = true }
-      end,
-      desc = 'Build version of site including drafts',
-    },
+      '<leader>zs',
 
-    {
-      '<leader>zbp',
       function()
-        require('zola').build {}
-      end,
-      desc = 'Build release version of site',
-    },
-
-    {
-      '<leader>zc',
-      function()
-        require('zola').check {}
-      end,
-      desc = 'Check the site',
-    },
-
-    {
-      '<leader>zsp',
-      function()
-        require('zola').serve {}
-      end,
-      desc = 'Serve the release version of the site',
-    },
-
-    {
-      '<leader>zsd',
-      function()
-        require('zola').serve { drafts = true }
-      end,
-      desc = 'Serve the site with drafts',
-    },
-
-    {
-      '<leader>zns',
-      function()
-        vim.ui.input({ prompt = 'Enter section slug: ' }, function(result)
-          if not result then
-            return
-          end
-
-          require('zola').create_section {
-            slug = 'blog/' .. result,
-            draft = true,
-            open = true,
-          }
-        end)
+        require('zola').create_interactive {
+          kind = 'section',
+          prefix = 'blog',
+        }
       end,
       desc = 'Create a new blog section',
     },
+    {
+      '<leader>zz',
+      function()
+        require 'zola'
+      end,
+    },
 
     {
-      '<leader>znp',
+      '<leader>zp',
       function()
-        vim.ui.input({ prompt = 'Enter page slug: ' }, function(result)
-          if not result then
-            return
-          end
-
-          require('zola').create_page {
-            slug = 'blog/' .. result,
-            page_is_dir = true,
-            draft = true,
-            open = true,
-          }
-        end)
+        require('zola').create_interactive {
+          kind = 'page',
+          prefix = 'blog',
+        }
       end,
+
       desc = 'Create a new blog post',
     },
   },
