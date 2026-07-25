@@ -1,7 +1,7 @@
 return {
   dir = '~/projects/lua/zola.nvim',
   lazy = false,
-  opts = { draft_by_default = true },
+  opts = { draft_by_default = true, page_is_dir = true },
 
   dependencies = {
     'nvim-lua/plenary.nvim',
