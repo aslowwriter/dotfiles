@@ -20,6 +20,7 @@ return { -- Autoformat
       python = { 'ruff' },
       rust = { 'rustfmt' },
       bash = { 'shellfmt' },
+      kdl = { 'kdlfmt' },
       xml = { 'xmlformatter' },
       kotlin = { 'ktfmt' },
       yaml = { 'oxfmt' },
