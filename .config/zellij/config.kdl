@@ -223,7 +223,8 @@ keybinds clear-defaults=true {
         bind "Ctrl b" { SwitchToMode "tmux"; }
     }
     shared_except "locked" "scroll" "search" {
-        bind "Ctrl f" { ToggleFloatingPanes; }
+        bind "Ctrl Shift w" { ToggleFloatingPanes; }
+	bind "Ctrl f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "Ctrl s" { SwitchToMode "scroll"; }
     }
     shared_except "locked" "tab" {

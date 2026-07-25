@@ -53,6 +53,5 @@ if status is-interactive
     else
       zellij
     end
-      zellij action rename-tab "base" >/dev/null 2>&1
 end
 
