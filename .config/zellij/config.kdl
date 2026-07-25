@@ -19,7 +19,7 @@ keybinds clear-defaults=true {
         bind "j" { MoveFocus "down"; }
         bind "k" { MoveFocus "up"; }
         bind "l" { MoveFocus "right"; }
-        bind "n" { NewPane; SwitchToMode "normal"; }
+        bind "t" { NewPane; SwitchToMode "normal"; }
         bind "p" { SwitchFocus; }
         bind "Alt p" { SwitchToMode "normal"; }
         bind "r" { NewPane "right"; SwitchToMode "normal"; }
@@ -200,7 +200,7 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift x" { CloseTab; SwitchToMode "normal"; }
         bind "Ctrl k" { MoveFocus "up"; }
         bind "Ctrl l" { MoveFocus "right"; }
-        bind "Ctrl n" { NewPane; }
+        bind "Ctrl e" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
@@ -230,7 +230,7 @@ keybinds clear-defaults=true {
         bind "Ctrl t" { SwitchToMode "tab"; }
     }
     shared_except "locked" "pane" {
-        bind "Ctrl p" { SwitchToMode "pane"; }
+        bind "Ctrl Shift p" { SwitchToMode "pane"; }
     }
     shared_except "locked" "resize" {
         bind "Ctrl r" { SwitchToMode "resize"; }
