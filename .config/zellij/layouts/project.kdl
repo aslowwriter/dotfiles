@@ -1,10 +1,10 @@
 layout {
-    
     pane size=1 borderless=true {
         plugin location="tab-bar"
     }
-    pane name="editor"{
-	command "nvim"
+    pane split_direction="vertical" name="workspace"{
+        pane name="editor" {
+            command "nvim"
+        }
     }
-
 }

@@ -3,8 +3,6 @@ layout {
         plugin location="tab-bar"
     }
     pane split_direction="vertical" {
-        pane name="editor" {
-            command "pixi" "run" "-e" "default" "nvim"
-        }
+        pane
     }
 }
