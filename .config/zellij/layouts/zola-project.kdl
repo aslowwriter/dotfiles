@@ -10,7 +10,8 @@ layout {
 	    command "nvim"
 	}
 	pane name="zola"{
-	    command "zola" "serve"
+	    command "zola" 
+	    args "serve"
 	}
     }
 

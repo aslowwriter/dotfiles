@@ -27,6 +27,8 @@ if ! zellij ac query-tab-names | grep -q "$selected_name"  2> /dev/null; then
 	layout_name="pixi-project"
     elif [[ -f "$selected/Cargo.toml" ]]; then
 	layout_name="rust-project"
+    elif { [[ -f "$selected/config.toml" ]] || [[ -f "$selected/zola.toml" ]]; } && [[ -d "$selected/content" ]]; then
+	layout_name="zola-project"
     else
 	layout_name="project"
     fi
