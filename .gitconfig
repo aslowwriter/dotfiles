@@ -29,6 +29,8 @@
     light = false
 	side-by-side = true
 	line-numbers = true
+[diff "objects_inv"]
+        textconv = sinv-textconv
 [merge]
     conflictstyle = diff3
 [diff]
