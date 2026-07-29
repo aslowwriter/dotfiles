@@ -29,7 +29,7 @@ return { -- Autocompletion
       default = { 'lsp', 'path', 'snippets', 'lazydev', 'zola_content', 'zola_shortcodes', 'zola_taxonomies' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        zola_content = { module = 'zola.sources.content_paths', min_keyword_length = 1 },
+        zola_content = { module = 'zola.sources.content_paths' },
         zola_shortcodes = { module = 'zola.sources.shortcodes' },
         zola_taxonomies= { module = 'zola.sources.taxonomies' }
       },
