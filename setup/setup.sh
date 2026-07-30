@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -Eeuo pipefail
+shopt -s inherit_errexit
+
 function install_pixi() {
 	if ! command -v pixi &>/dev/null; then
 		curl -fsSL https://pixi.sh/install.sh | bash
@@ -125,7 +128,7 @@ function setup_time_zone() {
 }
 
 function setup_audio() {
-	install_tools paru pipewire pipewire-pulse qpwgraph wireplumber bluez pulsemixer
+	install_tools paru pipewire pipewire-pulse qpwgraph wireplumber bluez pipewire-pulse pipewire-jack
 	systemctl enable --now --user pipewire-pulse
 	sudo systemctl enable --now bluetooth.service
 	systemctl --user --now enable wireplumber
@@ -154,21 +157,12 @@ function setup_power_management() {
 	fi
 }
 
-function setup_wezterm() {
-
-	if [ ! -f ~/.wezterm.sh ]; then
-		curl -Ssfo ~/.wezterm.sh https://raw.githubusercontent.com/wez/wezterm/refs/heads/main/assets/shell-integration/wezterm.sh
-	fi
-	install_tools paru wezterm
-
-}
-
 function setup_terminal() {
 
-	setup_wezterm
+	install_tools paru rio
 
 	install_tools pixi pre-commit
-	install_tools paru dust eza fd lazygit ripgrep starship topgrade-bin zoxide tz yazi neovim git-delta
+	install_tools paru dust eza fd lazygit ripgrep starship topgrade zoxide yazi neovim git-delta
 
 	# don't want fish to start when we install it so it get's handled separately
 	if ! command -v fish &>/dev/null; then
@@ -177,26 +171,23 @@ function setup_terminal() {
 
 	# outside of home dir so stow won't manage these I think
 	sudo rm /etc/pacman.conf
-	sudo ln -s ~/dotfiles/pacman.conf /etc/pacman.conf -f
+	sudo ln -fs ~/dotfiles/pacman.conf /etc/pacman.conf
 
 }
 
 function setup_streaming_tools() {
-    install_tools flatpak com.obsproject.Studio com.obsproject.Studio.Plugin.OBSPWVideo
-    install_tools paru firebot 
-    xdg-open https://olmewe.itch.io/veadotube-mini
-    read -r -p "download veadotube mini then press enter" -s -n1 </dev/tty
-    mkdir -p $HOME/projects/streaming/{assets,plugins}
-    unzip $HOME/Downloads/veadotube-mini-linux-x64.zip -d $HOME/projects/streaming/plugins/veadotube-mini
-    pushd /usr/bin/
-    sudo ln -s $HOME/projects/streaming/plugins/veadotube-mini/veadotube-mini veadotube-mini
-    popd || 1
+	install_tools flatpak com.obsproject.Studio com.obsproject.Studio.Plugin.OBSPWVideo
+	install_tools paru firebot
+	xdg-open https://olmewe.itch.io/veadotube-mini
+	read -r -p "download veadotube mini then press enter" -s -n1 </dev/tty
+	mkdir -p "$HOME/projects/streaming/{assets,plugins}"
+	unzip $HOME/Downloads/veadotube-mini-linux-x64.zip -d $HOME/projects/streaming/plugins/veadotube-mini
+	pushd /usr/bin/
+	sudo ln -s $HOME/projects/streaming/plugins/veadotube-mini/veadotube-mini veadotube-mini
+	popd || 1
 
-    xdg-open https://vgen.co/mielzy/product/slime2-angled-user-rectangle-chat-/272f29c8-7388-4df9-b0e5-b6ea20e40842 
-    read -r -p "download slime2 then press enter" -s -n1 </dev/tty
-
-
-
+	xdg-open https://vgen.co/mielzy/product/slime2-angled-user-rectangle-chat-/272f29c8-7388-4df9-b0e5-b6ea20e40842
+	read -r -p "download slime2 then press enter" -s -n1 </dev/tty
 
 }
 
@@ -211,21 +202,21 @@ function setup_writing_tools() {
 }
 
 function setup_misc_dev_tools() {
-	install_tools paru github-cli just tokei gittype lazygit 
+	install_tools paru github-cli just tokei
 	install_tools cargo prek
 
 }
 function setup_rust_tools() {
-	install_tools paru rustup taplo-cli bacon release-plz 
+	install_tools paru rustup taplo-cli bacon release-plz
 	install_tools cargo cargo-edit cargo-generate
 
 }
 function setup_infra_tools() {
-	install_tools pixi awscli
+	install_tools pixi awscli ipython
 }
 
 function setup_espanso() {
-	install_tools paru espanso-wayland-git
+	install_tools paru espanso-wayland
 	espanso service register
 }
 
@@ -234,41 +225,38 @@ function setup_fonts() {
 }
 
 function install_sdd_theme() {
-    # unzip to extract theme, rest are theme dependencies
-    install_tools paru unzip  qt6-svg qt6-declarative qt5-quickcontrols2
-    if [! -d /usr/share/sddm/themes/catppuccin-macchiato-mauve/ ]; then
-	curl -LsSf https://github.com/catppuccin/sddm/releases/download/v1.1.2/catppuccin-macchiato-mauve-sddm.zip -o catppuccin.zip
+	# unzip to extract theme, rest are theme dependencies
+	install_tools paru unzip qt6-svg qt6-declarative qt5-quickcontrols2
+	if [ ! -d /usr/share/sddm/themes/catppuccin-macchiato-mauve/ ]; then
+		curl -LsSf https://github.com/catppuccin/sddm/releases/download/v1.1.2/catppuccin-macchiato-mauve-sddm.zip -o catppuccin.zip
 
-	unzip catppuccin.zip
-	sudo mv -v catppuccin-macchiato-mauve /usr/share/sddm/themes
-	rm catppuccin.zip
-    fi 
+		unzip catppuccin.zip
+		sudo mv -v catppuccin-macchiato-mauve /usr/share/sddm/themes
+		rm catppuccin.zip
+	fi
 
 }
-
 
 function setup_de() {
 	mkdir -p ~/Wallpapers
 	if [ ! -f ~/Wallpapers/wall.webp ]; then
-	    curl -Ls https://raw.githubusercontent.com/gh0stzk/dotfiles/master/config/bspwm/rices/andrea/walls/wall-01.webp -o ~/Wallpapers/wall.webp
-	fi 
+		curl -Ls https://raw.githubusercontent.com/gh0stzk/dotfiles/master/config/bspwm/rices/andrea/walls/wall-01.webp -o ~/Wallpapers/wall.webp
+	fi
 	if [ ! -f ~/Wallpapers/locked.png ]; then
-	    curl -Ls https://wallpapercave.com/wp/wp2639448.png -o ~/Wallpapers/locked.png
+		curl -Ls https://wallpapercave.com/wp/wp2639448.png -o ~/Wallpapers/locked.png
 	fi
 
-	sudo rm -f /etc/sddm.conf
-	sudo ln -s ~/dotfiles/sddm.conf /etc/sddm.conf
+	sudo ln -fs ~/dotfiles/sddm.conf /etc/sddm.conf
 
 	install_sdd_theme
 
-	install_tools paru brightnessctl cronie gammastep grim sddm slurp swappy swaybg swayidle swaylock waybar webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-wlr libqalculate 
+	install_tools paru brightnessctl cronie gammastep grim sddm slurp swappy swaybg swayidle swaylock waybar webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-wlr libqalculate
 
 	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications mako
 
 	sudo systemctl enable --now cronie.service
 
 }
-
 
 function setup_dotfiles() {
 	install_tools paru stow
@@ -299,9 +287,7 @@ function setup_1password() {
 
 function setup_ssh() {
 
-	install_tools paru wikiman base-devel
-
-	install_tools paru keychain openssh openssl
+	install_tools paru keychain
 	sudo systemctl enable --now ufw.service
 	sudo systemctl enable --now sshd.service
 
@@ -310,13 +296,8 @@ function setup_ssh() {
 	chmod -R 700 ~/.ssh
 
 	# add github to known hosts
-	ssh-keyscan github.com >githubKey
-	ssh-keygen -lf githubKey >>~/.ssh/known_hosts
-	rm githubKey
-
-	ssh-keyscan gitlab.com >gitlabKey
-	ssh-keygen -lf gitlabKey >>~/.ssh/known_hosts
-	rm gitlabKey
+	ssh-keyscan github.com >>~/.ssh/known_hosts
+	ssh-keyscan gitlab.com >>~/.ssh/known_hosts
 
 	# get sshkeys from password manager
 	key_type=$(op item get "$(hostnamectl | grep hostname | awk '{print$3}') [ssh]" --fields "key type")
@@ -350,7 +331,7 @@ function setup_ssh() {
 
 function setup_docker() {
 	# runtimes/compilers
-	install_paru docker dockerfile-language-server docker-compose
+	install_tools paru docker dockerfile-language-server
 	sudo usermod -aG docker sam
 	if [ -z "$(getent group docker)" ]; then
 		newgrp docker
@@ -370,12 +351,6 @@ function setup_aws() {
 
 }
 
-function disable_root_login() {
-
-	sudo sed -i -E 's/root:x:0:0:root:\/root:\/bin\/bash/root:x:0:0:root:\/root:\/usr\/sbin\/nologin/' /etc/passwd
-
-}
-
 function install_package_managers() {
 	install_cargo
 	install_paru
@@ -384,7 +359,6 @@ function install_package_managers() {
 }
 
 function setup_common() {
-	disable_root_login
 	setup_internet
 	install_package_managers
 	setup_time_zone
