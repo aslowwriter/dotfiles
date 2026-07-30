@@ -1,5 +1,7 @@
 return {
-  dir = '~/projects/lua/zola.nvim',
+  'aslowwriter/zola.nvim',
+  version = '0.2.*',
+
   lazy = false,
   opts = { draft_by_default = true, page_is_dir = true },
 
