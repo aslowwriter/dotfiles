@@ -287,7 +287,8 @@ function setup_1password() {
 
 function setup_ssh() {
 
-	install_tools paru keychain
+	install_tools paru keychain openssl openssh
+
 	sudo systemctl enable --now ufw.service
 	sudo systemctl enable --now sshd.service
 
