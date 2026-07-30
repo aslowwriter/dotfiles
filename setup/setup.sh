@@ -137,6 +137,7 @@ function setup_audio() {
 
 function setup_image_processing() {
 	install_tools flatpak org.inkscape.Inkscape
+	install_tools flatpak org.kde.krita
 
 }
 
@@ -242,6 +243,8 @@ function setup_de() {
 	sudo ln -fs ~/dotfiles/sddm.conf /etc/sddm.conf
 
 	install_sdd_theme
+
+	install_tools cargo bluetui
 
 	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi
 
