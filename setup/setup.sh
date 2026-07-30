@@ -159,7 +159,7 @@ function setup_power_management() {
 
 function setup_terminal() {
 
-	install_tools paru rio
+	install_tools paru rio zellij
 
 	install_tools pixi pre-commit
 	install_tools paru dust eza fd lazygit ripgrep starship topgrade zoxide yazi neovim git-delta
@@ -238,21 +238,14 @@ function install_sdd_theme() {
 }
 
 function setup_de() {
-	mkdir -p ~/Wallpapers
-	if [ ! -f ~/Wallpapers/wall.webp ]; then
-		curl -Ls https://raw.githubusercontent.com/gh0stzk/dotfiles/master/config/bspwm/rices/andrea/walls/wall-01.webp -o ~/Wallpapers/wall.webp
-	fi
-	if [ ! -f ~/Wallpapers/locked.png ]; then
-		curl -Ls https://wallpapercave.com/wp/wp2639448.png -o ~/Wallpapers/locked.png
-	fi
 
 	sudo ln -fs ~/dotfiles/sddm.conf /etc/sddm.conf
 
 	install_sdd_theme
 
-	install_tools paru brightnessctl cronie gammastep grim sddm slurp swappy swaybg swayidle swaylock waybar webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-wlr libqalculate
+	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi
 
-	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications mako
+	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications
 
 	sudo systemctl enable --now cronie.service
 
@@ -393,6 +386,7 @@ function setup_all() {
 	setup_writing_tools
 	setup_dev
 	setup_image_processing
+	setup_streaming_tools 
 }
 
 #get sudo rights for when we need it
