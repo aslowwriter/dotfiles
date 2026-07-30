@@ -262,9 +262,15 @@ function setup_dotfiles() {
 		git remote set-url origin git@github.com:aslowwriter/dotfiles.git
 
 		# just let stow assume ownership of everything
-		stow --adopt *
+		pushd home || exit 1
+		stow --adopt -t ~ * 
 		git restore .
+		popd || exit 1
 
+		pushd system || exit 1
+		stow --adopt -t / * 
+		git restore .
+		popd || exit 1
 		popd || exit 1
 	fi
 }
