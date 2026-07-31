@@ -211,11 +211,9 @@ function setup_fonts() {
 
 function setup_de() {
 
-	sudo ln -fs ~/dotfiles/sddm.conf /etc/sddm.conf
-
 	install_tools cargo bluetui
 
-	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi
+	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi unzip
 
 	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications
 
