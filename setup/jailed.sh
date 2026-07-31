@@ -11,15 +11,17 @@ systemctl enable fstrim.timer
 # Calculate swap size
 ram=$(free -g | awk '/^Mem:/{print $2}')
 swap_size=$((ram + 2)) # enough for hibernate plus some change
-fallocate -l "$swap_size"G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
+mkswap -U clear --size "$swap_size"G --file /swapfile
 swapon /swapfile
+
+if ! grep -q '^/swapfile ' /etc/fstab; then
+    echo '/swapfile none swap defaults 0 0' >> /etc/fstab
+fi
 
 sed 's/#en_GB.UTF-8.*/en_GB.UTF-8 UTF-8/g;s/#en_US.UTF-8.*/en_US.UTF-8 UTF-8/g' -i /etc/locale.gen
 locale-gen
 echo 'LANG=en_GB.UTF-8' >/etc/locale.conf
-timedatectl set-timezone Europe/Amsterdam
+
 read -r -p "Enter hostname: " hn
 echo "$hn" >/etc/hostname
 
@@ -52,6 +54,7 @@ else
 fi
 
 passwd sam
+mkdir -p /home/sam/.config
 chown -R sam:sam /home/sam/.config
 
 curl https://raw.githubusercontent.com/aslowwriter/dotfiles/main/setup/setup.sh -o /home/sam/setup.sh
