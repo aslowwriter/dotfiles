@@ -28,7 +28,7 @@ reflector
 pacman -Sy --needed archlinux-keyring --noconfirm
 
 #install what we'll need for system setup after reboot
-pacstrap -K /mnt amd-ucode base base-devel plasma konsole dolphin curl git linux linux-firmware mesa networkmanager openssl openssh sudo vim xorg-server-xwayland firefox
+pacstrap -K /mnt amd-ucode base base-devel plasma konsole dolphin curl git linux linux-firmware mesa networkmanager openssl openssh sudo vim xorg-server-xwayland firefox vulkan-radeon vulkan-tools
 
 genfstab -U /mnt >>/mnt/etc/fstab
 
