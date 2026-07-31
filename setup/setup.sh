@@ -133,7 +133,7 @@ function setup_audio() {
 	systemctl enable --now --user pipewire-pulse
 	sudo systemctl enable --now bluetooth.service
 	systemctl --user --now enable wireplumber
-	install_tools flatpak spotify
+	install_tools flatpak spotify org.freedesktop.LinuxAudio.Plugins.TAP org.freedesktop.LinuxAudio.Plugins.swh
 }
 
 function setup_image_processing() {
@@ -213,6 +213,10 @@ function setup_de() {
 	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi unzip
 
 	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications
+
+	install_tools paru plasma-bigscreen
+
+	install_tools flatpak com.discordapp.Discord com.valvesoftware.Steam org.signal.Signal tv.plex.PlexDesktop
 
 	sudo systemctl enable --now cronie.service
 
