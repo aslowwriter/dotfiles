@@ -14,12 +14,12 @@ _k_friendly_name=Accessibility
 [kmix]
 _k_friendly_name=Audio Volume
 decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,Decrease Microphone Volume
-decrease_volume=Volume Down,Volume Down,Decrease Volume
+decrease_volume=Volume Down\tMeta+Y,Volume Down,Decrease Volume
 decrease_volume_small=Shift+Volume Down,Shift+Volume Down,Decrease Volume by 1%
 increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Increase Microphone Volume
-increase_volume=Volume Up,Volume Up,Increase Volume
+increase_volume=Volume Up\tMeta+P,Volume Up,Increase Volume
 increase_volume_small=Shift+Volume Up,Shift+Volume Up,Increase Volume by 1%
-mic_mute=Microphone Mute\tMeta+Volume Mute,Microphone Mute\tMeta+Volume Mute,Mute Microphone
+mic_mute=Microphone Mute\tMeta+M\tMeta+Volume Mute,Microphone Mute\tMeta+Volume Mute,Mute Microphone
 mute=Volume Mute,Volume Mute,Mute
 push_to_talk=none,none,Push to talk
 
@@ -201,18 +201,18 @@ Window to Screen 7=none,none,Move Window to Screen 7
 _k_friendly_name=KWin
 disableInputCapture=Meta+Shift+Esc,Meta+Shift+Esc,Disable Active Input Capture
 view_actual_size=Meta+0,Meta+0,Zoom to Actual Size
-view_zoom_in=Meta++\tMeta+=,Meta++\tMeta+=,Zoom In
+view_zoom_in=Meta++,Meta++\tMeta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
 mediavolumedown=none,none,Media volume down
 mediavolumeup=none,none,Media volume up
-nextmedia=Media Next,Media Next,Media playback next
+nextmedia=Media Next\tMeta+O,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
 playmedia=none,none,Play media playback
-playpausemedia=Media Play,Media Play,Play/Pause media playback
-previousmedia=Media Previous,Media Previous,Media playback previous
+playpausemedia=Media Play\tMeta+I,Media Play,Play/Pause media playback
+previousmedia=Media Previous\tMeta+U,Media Previous,Media playback previous
 seekbackwardmedia=Media Rewind,Media Rewind,Media playback seek backward 5s
 seekbackwardmedialong=none,none,Media playback seek backward 30s
 seekforwardmedia=Media Fast Forward,Media Fast Forward,Media playback seek forward 5s
@@ -237,7 +237,7 @@ powerProfile=Battery\tMeta+B,Battery\tMeta+B,Switch Power Profile
 
 [plasmashell]
 Slideshow Wallpaper Next Image=none,none,Next Wallpaper Image
-Toggle Bigscreen Home Overlay=Meta+O,Meta+O,Toggle Bigscreen Home Overlay
+Toggle Bigscreen Home Overlay=none,Meta+O,Toggle Bigscreen Home Overlay
 Toggle Bigscreen Home Screen=Home Page,Home Page,Toggle Bigscreen Home Screen
 Toggle Bigscreen Settings=Settings,Settings,Toggle Bigscreen Settings
 Toggle Bigscreen Tasks Overview=Menu,Menu,Toggle Bigscreen Tasks Overview
@@ -272,6 +272,15 @@ switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[services][net.local.walker.desktop]
+_launch=Meta+=
+
+[services][org.kde.kscreen.desktop]
+ShowOSD=Display
+
 [services][org.kde.spectacle.desktop]
 CurrentMonitorScreenShot=none
 OpenWithoutScreenshot=none
+
+[services][systemsettings.desktop]
+_launch=Tools
