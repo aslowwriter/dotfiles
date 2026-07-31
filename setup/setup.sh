@@ -166,9 +166,9 @@ function setup_streaming_tools() {
 	xdg-open https://olmewe.itch.io/veadotube-mini
 	read -r -p "download veadotube mini then press enter" -s -n1 </dev/tty
 	mkdir -p "$HOME/projects/streaming/{assets,plugins}"
-	unzip $HOME/Downloads/veadotube-mini-linux-x64.zip -d $HOME/projects/streaming/plugins/veadotube-mini
+	unzip "$HOME/Downloads/veadotube-mini-linux-x64.zip" -d "$HOME/projects/streaming/plugins/veadotube-mini"
 	pushd /usr/bin/
-	sudo ln -s $HOME/projects/streaming/plugins/veadotube-mini/veadotube-mini veadotube-mini
+	sudo ln -s "$HOME/projects/streaming/plugins/veadotube-mini/veadotube-mini" veadotube-mini
 	popd || 1
 
 	xdg-open https://vgen.co/mielzy/product/slime2-angled-user-rectangle-chat-/272f29c8-7388-4df9-b0e5-b6ea20e40842
@@ -231,12 +231,12 @@ function setup_dotfiles() {
 
 		# just let stow assume ownership of everything
 		pushd home || exit 1
-		stow --adopt -t ~ *
+		stow --adopt -t ~ -- *
 		git restore .
 		popd || exit 1
 
 		pushd system || exit 1
-		stow --adopt -t / *
+		sudo stow --adopt -t / -- *
 		git restore .
 		popd || exit 1
 		popd || exit 1
