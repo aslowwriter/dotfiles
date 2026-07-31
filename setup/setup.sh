@@ -147,7 +147,7 @@ function setup_terminal() {
 	install_tools paru rio zellij
 
 	install_tools pixi pre-commit
-	install_tools paru dust eza fd lazygit ripgrep starship topgrade zoxide yazi neovim git-delta
+	install_tools paru dust eza fd lazygit ripgrep starship topgrade zoxide yazi neovim git-delta fzf
 
 	# don't want fish to start when we install it so it get's handled separately
 	if ! command -v fish &>/dev/null; then
