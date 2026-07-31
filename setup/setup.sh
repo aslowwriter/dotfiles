@@ -129,7 +129,7 @@ function setup_time_zone() {
 }
 
 function setup_audio() {
-	install_tools paru pipewire pipewire-pulse qpwgraph wireplumber bluez pipewire-pulse pipewire-jack
+	install_tools paru pipewire pipewire-pulse qpwgraph wireplumber bluez pipewire-pulse
 	systemctl enable --now --user pipewire-pulse
 	sudo systemctl enable --now bluetooth.service
 	systemctl --user --now enable wireplumber
