@@ -1,7 +1,5 @@
 set -euo pipefail
 
-timedatectl
-
 # Format disk
 
 # Create partition table
@@ -15,17 +13,18 @@ echo ",," | sfdisk --append /dev/nvme0n1
 
 # Format partitions
 mkfs.fat -F 32 /dev/nvme0n1p1
-mkfs.ext4 /dev/nvme0n1p2
+mkfs.ext4 -F /dev/nvme0n1p2
 
 mount /dev/nvme0n1p2 /mnt
-mount --mkdir /dev/nvme0n1p1 /mnt/boot
+
+# make bootctl a bit happier about my seed file permissions
+mount -o umask=0077 --mkdir /dev/nvme0n1p1 /mnt/boot
 
 #installing packages
 #update mirror list
 reflector
 
 #update keyring in case the iso is old
-pacman -Syy
 pacman -Sy --needed archlinux-keyring --noconfirm
 
 #install what we'll need for system setup after reboot

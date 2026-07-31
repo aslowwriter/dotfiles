@@ -120,6 +120,7 @@ function setup_internet() {
 function setup_time_zone() {
 	install_tools paru ufw curl chrony
 
+	systemctl enable --now systemd-timesyncd
 	timedatectl set-timezone Europe/Amsterdam
 
 	sudo systemctl enable --now NetworkManager.service
@@ -365,31 +366,31 @@ function setup_all() {
 }
 
 main() {
-    # get sudo rights for when we need it
-    sudo -v
+	# get sudo rights for when we need it
+	sudo -v
 
-    group=$1
-    case "$group" in
-        all)
-            setup_all
-            ;;
-        minimal)
-            setup_minimal
-            ;;
-        dev)
-            setup_dev
-            ;;
-        "")
-            exit 1
-            ;;
-        *)
-            echo "Unknown group: $group"
-            exit 1
-            ;;
-    esac
+	group=$1
+	case "$group" in
+	all)
+		setup_all
+		;;
+	minimal)
+		setup_minimal
+		;;
+	dev)
+		setup_dev
+		;;
+	"")
+		exit 1
+		;;
+	*)
+		echo "Unknown group: $group"
+		exit 1
+		;;
+	esac
 }
 
 # Execute only if not sourced
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    main "$@"
+	main "$@"
 fi
