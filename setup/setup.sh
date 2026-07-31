@@ -161,7 +161,7 @@ function setup_streaming_tools() {
 	install_tools paru firebot
 	xdg-open https://olmewe.itch.io/veadotube-mini
 	read -r -p "download veadotube mini then press enter" -s -n1 </dev/tty
-	mkdir -p "$HOME/projects/streaming/{assets,plugins}"
+	mkdir -p "$HOME"/projects/streaming/{assets,plugins}
 	unzip "$HOME/Downloads/veadotube-mini-linux-x64.zip" -d "$HOME/projects/streaming/plugins/veadotube-mini"
 	pushd /usr/bin/
 	sudo ln -s "$HOME/projects/streaming/plugins/veadotube-mini/veadotube-mini" veadotube-mini
