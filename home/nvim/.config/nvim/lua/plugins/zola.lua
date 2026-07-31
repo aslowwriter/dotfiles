@@ -1,6 +1,6 @@
 return {
   'aslowwriter/zola.nvim',
-  version = '0.2.*',
+  version = '0.2.1',
 
   lazy = false,
   opts = { draft_by_default = true, page_is_dir = true },

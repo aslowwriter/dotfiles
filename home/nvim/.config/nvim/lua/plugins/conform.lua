@@ -19,7 +19,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       python = { 'ruff' },
       rust = { 'rustfmt' },
-      bash = { 'shellfmt' },
+      bash = { 'shfmt' },
       kdl = { 'kdlfmt' },
       xml = { 'xmlformatter' },
       kotlin = { 'ktfmt' },
