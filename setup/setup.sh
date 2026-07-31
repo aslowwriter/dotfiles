@@ -141,23 +141,6 @@ function setup_image_processing() {
 
 }
 
-function setup_power_management() {
-
-	# check if system has a battery
-	if upower -e | grep -q 'BAT'; then
-		install_tools paru acpi
-
-		# make sure laptop hybernates when battery is too low
-		echo 'SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-7]", RUN+="/usr/bin/systemctl hibernate"' | sudo tee /etc/udev/rules.d/99-lowbat.rules
-
-		# shellcheck disable=SC2016
-		(
-			crontab -l
-			echo '* * * * * "/bin/bash" "/home/sam/.local/bin/notify_battery.sh"'
-		) 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
-	fi
-}
-
 function setup_terminal() {
 
 	install_tools paru rio zellij
@@ -205,6 +188,7 @@ function setup_writing_tools() {
 function setup_misc_dev_tools() {
 	install_tools paru github-cli just tokei
 	install_tools cargo prek
+	install_tools cargo sinv-textconv
 
 }
 function setup_rust_tools() {
@@ -225,24 +209,9 @@ function setup_fonts() {
 	install_tools paru noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-firacode-nerd ttf-font-awesome
 }
 
-function install_sdd_theme() {
-	# unzip to extract theme, rest are theme dependencies
-	install_tools paru unzip qt6-svg qt6-declarative qt5-quickcontrols2
-	if [ ! -d /usr/share/sddm/themes/catppuccin-macchiato-mauve/ ]; then
-		curl -LsSf https://github.com/catppuccin/sddm/releases/download/v1.1.2/catppuccin-macchiato-mauve-sddm.zip -o catppuccin.zip
-
-		unzip catppuccin.zip
-		sudo mv -v catppuccin-macchiato-mauve /usr/share/sddm/themes
-		rm catppuccin.zip
-	fi
-
-}
-
 function setup_de() {
 
 	sudo ln -fs ~/dotfiles/sddm.conf /etc/sddm.conf
-
-	install_sdd_theme
 
 	install_tools cargo bluetui
 
@@ -263,12 +232,12 @@ function setup_dotfiles() {
 
 		# just let stow assume ownership of everything
 		pushd home || exit 1
-		stow --adopt -t ~ * 
+		stow --adopt -t ~ *
 		git restore .
 		popd || exit 1
 
 		pushd system || exit 1
-		stow --adopt -t / * 
+		stow --adopt -t / *
 		git restore .
 		popd || exit 1
 		popd || exit 1
@@ -336,7 +305,7 @@ function setup_docker() {
 	# runtimes/compilers
 	install_tools paru docker dockerfile-language-server
 	sudo usermod -aG docker sam
-	if [ -z "$(getent group docker)" ]; then
+	if ! groups "$USER" | grep -q '\bdocker\b'; then
 		newgrp docker
 	fi
 
@@ -385,7 +354,6 @@ function setup_dev() {
 	setup_misc_dev_tools
 	setup_rust_tools
 	setup_infra_tools
-	setup_1password
 	setup_docker
 	setup_aws
 }
@@ -395,29 +363,35 @@ function setup_all() {
 	setup_writing_tools
 	setup_dev
 	setup_image_processing
-	setup_streaming_tools 
+	setup_streaming_tools
 }
 
-#get sudo rights for when we need it
-sudo -v
+main() {
+    # get sudo rights for when we need it
+    sudo -v
 
-group=$1
-case "$group" in
-all)
-	setup_all
-	;;
-minimal)
-	setup_minimal
-	;;
-#for if we want to source the functions
-source)
-	setup_all
-	;;
-"")
-	exit 1
-	;;
-*)
-	echo "Unknown group: $group"
-	exit 1
-	;;
-esac
+    group=$1
+    case "$group" in
+        all)
+            setup_all
+            ;;
+        minimal)
+            setup_minimal
+            ;;
+        dev)
+            setup_dev
+            ;;
+        "")
+            exit 1
+            ;;
+        *)
+            echo "Unknown group: $group"
+            exit 1
+            ;;
+    esac
+}
+
+# Execute only if not sourced
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@"
+fi

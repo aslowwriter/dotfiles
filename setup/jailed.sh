@@ -25,7 +25,7 @@ echo "title Arch Linux
 linux /vmlinuz-linux
 initrd /amd-ucode.img
 initrd /initramfs-linux.img
-options root=UUID=$(blkid -s UUID -o value /dev/nvme0n1p3) rw" > /boot/loader/entries/arch.conf
+options root=UUID=$(blkid -s UUID -o value /dev/nvme0n1p2) rw" > /boot/loader/entries/arch.conf
 
 useradd -m -G wheel sam
 
