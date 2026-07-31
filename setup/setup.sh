@@ -154,10 +154,6 @@ function setup_terminal() {
 		sudo pacman -S --needed --noconfirm fish
 	fi
 
-	# outside of home dir so stow won't manage these I think
-	sudo rm /etc/pacman.conf
-	sudo ln -fs ~/dotfiles/pacman.conf /etc/pacman.conf
-
 }
 
 function setup_streaming_tools() {
