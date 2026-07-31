@@ -7,6 +7,15 @@ systemctl enable sddm.service
 systemctl enable NetworkManager
 systemctl enable fstrim.timer
 
+# Setup swapfile
+# Calculate swap size
+ram=$(free -g | awk '/^Mem:/{print $2}')
+swap_size=$((ram + 2)) # enough for hibernate plus some change
+fallocate -l "$swap_size"G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+
 sed 's/#en_GB.UTF-8.*/en_GB.UTF-8 UTF-8/g;s/#en_US.UTF-8.*/en_US.UTF-8 UTF-8/g' -i /etc/locale.gen
 locale-gen
 echo 'LANG=en_GB.UTF-8' >/etc/locale.conf
