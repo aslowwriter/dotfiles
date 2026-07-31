@@ -1,0 +1,108 @@
+{
+    "layer":"top",
+    "position":"top",
+    "mode":"dock",
+    "name":"main",
+    "modules-left":[
+        "sway/workspaces",
+        "custom/right-arrow-dark"
+    ],
+    "modules-center":[
+        "custom/left-arrow-dark",
+        "clock#time",
+        "clock#date",
+        "custom/right-arrow-dark"
+    ],
+    "custom/space":{
+        "format":" ",
+        "tooltip":false
+    },
+    "custom/left-arrow-dark":{
+        "format":"",
+        "tooltip":false
+    },
+    "custom/left-arrow-light":{
+        "format":"",
+        "tooltip":false
+    },
+    "custom/right-arrow-dark":{
+        "format":"",
+        "tooltip":false
+    },
+    "custom/right-arrow-light":{
+        "format":"",
+        "tooltip":false
+    },
+    "sway/workspaces":{
+        "disable-scroll":true,
+        "format":"{name}"
+    },
+    "clock#time":{
+        "format":"  {:%H:%M}",
+        "tooltip":false
+    },
+    "clock#date":{
+        "format":"  {:%a %d/%m}",
+        "tooltip-format":"<tt>{calendar}</tt>",
+        "calendar":{
+            "mode":"month",
+            "mode-mon-col":3,
+            "weeks-pos":"right",
+            "on-scroll":1,
+            "format":{
+                "months":"<span color='#ffead3'><b>{}</b></span>",
+                "days":"<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":"<span color='#99ffdd'><b>{}</b></span>",
+                "weekdays":"<span color='#ffcc66'><b>{}</b></span>",
+                "today":"<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":{
+            "on-click-middle":"shift_reset",
+            "on-click-right":"mode",
+            "on-scroll-up":"shift_up",
+            "on-scroll-down":"shift_down"
+        }
+    },
+    "wireplumber":{
+        "format":"{icon} {volume}%",
+        "format-muted":"",
+        "on-click":"qpwgraph",
+        "format-icons":[
+            "  ",
+            "  ",
+            "  "
+        ]
+    },
+    "battery":{
+        "interval":1,
+        "states":{
+            "full":100,
+            "good":75,
+            "normal":50,
+            "low":30,
+            "critical":15
+        },
+        "format":"{icon} {capacity}%",
+        "format-icons":{
+            "critical":"  ",
+            "low":"  ",
+            "normal":"  ",
+            "good":"  ",
+            "full":"  ",
+            "charging":" "
+        }
+    },
+    "network":{
+        "format-wifi":" ",
+        "format-disconnected":" ",
+        "tooltip-format":"{ipaddr}",
+        "tooltip-format-wifi":"{essid}({ipaddr})",
+        "tooltip-format-ethernet":"{ipaddr} ",
+        "tooltip-format-disconnected":"D:",
+        "max-length":50
+    },
+    "tray":{
+        "icon-size":20
+    },
+}
