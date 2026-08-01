@@ -69,6 +69,9 @@ plugin=org.kde.plasma.pager
 immutability=1
 plugin=org.kde.plasma.icontasks
 
+[Containments][3][Applets][6][Configuration][General]
+launchers=applications:rio.desktop,preferred://browser,applications:obsidian.desktop
+
 [Containments][3][Applets][7]
 immutability=1
 plugin=org.kde.plasma.marginsseparator

@@ -214,6 +214,8 @@ function setup_de() {
 
 	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications
 
+	elephant service enable
+
 	install_tools flatpak com.discordapp.Discord com.valvesoftware.Steam org.signal.Signal tv.plex.PlexDesktop
 
 	sudo systemctl enable --now cronie.service
