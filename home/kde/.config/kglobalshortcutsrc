@@ -3,8 +3,8 @@ _k_friendly_name=Activity Manager
 switch-to-activity-e5661d74-b85c-4b42-87f1-68529da01262=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
-Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,
-Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,
+Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,Switch to Last-Used Keyboard Layout
+Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
 [kaccess]
@@ -272,6 +272,9 @@ switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[services][net.local.playerctl.desktop]
+_launch=Launch Mail
+
 [services][net.local.walker-5.desktop]
 _launch=Meta+D
 
@@ -280,10 +283,6 @@ _launch=Meta+=
 
 [services][org.kde.kscreen.desktop]
 ShowOSD=Display
-
-[services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
-OpenWithoutScreenshot=none
 
 [services][systemsettings.desktop]
 _launch=Tools
