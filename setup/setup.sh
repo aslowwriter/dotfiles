@@ -222,6 +222,23 @@ function setup_de() {
 
 }
 
+# do some git magic to avoid having to download a GB worth of themes
+# I'm not going to use
+function setup_sddm_theme() {
+	git clone --filter=blob:none --no-checkout https://github.com/Darkkal44/qylock.git
+	cd qylock
+	git sparse-checkout set themes/pixel-coffee
+	git checkout main
+
+	sudo mkdir -p /usr/share/sddm/themes/
+	sudo cp -r themes/pixel-coffee /usr/share/sddm/themes/
+
+	# and also cleanup after ourselves
+	cd ..
+	rm -rf qyllock
+
+}
+
 function setup_dotfiles() {
 	install_tools paru stow
 	if [ ! -d ~/dotfiles ]; then
