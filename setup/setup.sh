@@ -206,22 +206,6 @@ function setup_fonts() {
 	install_tools paru noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-firacode-nerd ttf-font-awesome
 }
 
-function setup_de() {
-
-	install_tools cargo bluetui
-
-	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi unzip
-
-	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications
-
-	elephant service enable
-
-	install_tools flatpak com.discordapp.Discord com.valvesoftware.Steam org.signal.Signal tv.plex.PlexDesktop
-
-	sudo systemctl enable --now cronie.service
-
-}
-
 # do some git magic to avoid having to download a GB worth of themes
 # I'm not going to use
 function setup_sddm_theme() {
@@ -237,6 +221,23 @@ function setup_sddm_theme() {
 	cd ..
 	rm -rf qyllock
 
+}
+
+function setup_de() {
+
+	install_tools cargo bluetui
+
+	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi unzip
+
+	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications
+
+	elephant service enable
+
+	install_tools flatpak com.discordapp.Discord com.valvesoftware.Steam org.signal.Signal tv.plex.PlexDesktop
+
+	sudo systemctl enable --now cronie.service
+
+	setup_sddm_theme
 }
 
 function setup_dotfiles() {
