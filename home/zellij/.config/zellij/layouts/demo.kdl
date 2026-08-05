@@ -1,0 +1,9 @@
+layout {
+    pane {
+        command "asciinema"
+        args "rec" "../demo.rec" "--command" "GIT_CONFIG_GLOBAL=/dev/null bash --norc" "--overwrite"
+        borderless true
+        start_suspended true
+        close_on_exit true
+    }
+}
