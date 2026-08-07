@@ -157,7 +157,7 @@ function setup_terminal() {
 }
 
 function setup_streaming_tools() {
-	install_tools flatpak com.obsproject.Studio com.obsproject.Studio.Plugin.OBSPWVideo
+	install_tools flatpak com.obsproject.Studio com.obsproject.Studio.Plugin.OBSPWVideo  com.obsproject.Studio.Plugin.PipeWireAudioCapture
 	install_tools paru firebot
 	xdg-open https://olmewe.itch.io/veadotube-mini
 	read -r -p "download veadotube mini then press enter" -s -n1 </dev/tty
