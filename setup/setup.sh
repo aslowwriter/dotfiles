@@ -227,7 +227,7 @@ function setup_de() {
 
 	install_tools cargo bluetui
 
-	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi unzip
+	install_tools paru brightnessctl cronie sddm webp-pixbuf-loader xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde spectacle plasma-nm libqalculate vivaldi unzip qt6-multimedia
 
 	install_tools paru walker elephant elephant-symbols elephant-unicode elephant-providerlist elephant-menus elephant-calc elephant-desktopapplications
 
