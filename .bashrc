@@ -1,5 +1,3 @@
-eval "$(keychain --eval --quiet -Q id_ed25519)"
-
 export WALKER_CONFIG_TYPE=toml
 export EDITOR="nvim"
 
