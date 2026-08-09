@@ -80,11 +80,10 @@ gui:
   switchToFilesAfterStashApply: true
 git:
   overrideGpg: true
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never
+      command: delta --paging=never
       useConfig: false
-      externalDiffCommand: ""
   commit:
     signOff: false
     autoWrapCommitMessage: true
