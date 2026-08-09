@@ -198,6 +198,7 @@ keybinds clear-defaults=true {
         }
         bind "Ctrl j" { MoveFocus "down"; }
         bind "Ctrl Shift x" { CloseTab; SwitchToMode "normal"; }
+        bind "Ctrl Alt x" { CloseFocus; SwitchToMode "normal"; }
         bind "Ctrl k" { MoveFocus "up"; }
         bind "Ctrl l" { MoveFocus "right"; }
         bind "Ctrl e" { NewPane; }
