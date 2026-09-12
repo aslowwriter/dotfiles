@@ -204,7 +204,7 @@ function setup_infra_tools() {
 }
 
 function setup_espanso() {
-	install_tools paru espanso-wayland
+	install_tools paru espanso-wayland-bin
 	espanso service register
 }
 
@@ -255,12 +255,12 @@ function setup_dotfiles() {
 
 		# just let stow assume ownership of everything
 		pushd home || exit 1
-		stow --adopt -t ~ -- *
+		stow --adopt -t ~ *
 		git restore .
 		popd || exit 1
 
 		pushd system || exit 1
-		sudo stow --adopt -t / -- *
+		sudo stow --adopt -t / *
 		git restore .
 		popd || exit 1
 		popd || exit 1
